@@ -22,5 +22,14 @@ public class Terceirizado extends Empregado{
 
     }
 
+    @Override
+    public String toString() {
+        return "Contracao = 'Terceirizado'"+
+                ", nome='" + nome + "'" +
+                ", hora=" + hora +
+                ", valorPorHora=" + valorPorHora +
+                ", despesaAdicional=" + despesaAdicional +
+                ", pagamento=" + pagamento();
+    }
 }
 

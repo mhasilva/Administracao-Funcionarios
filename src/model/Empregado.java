@@ -2,9 +2,9 @@ package model;
 
 public class Empregado {
 
-    private String nome;
-    private Integer hora;
-    private Double valorPorHora;
+    protected String nome;
+    protected Integer hora;
+    protected Double valorPorHora;
 
     public Empregado(){}
 
@@ -44,6 +44,13 @@ public class Empregado {
 
     }
 
-
+    @Override
+    public String toString() {
+        return "Contracao = 'Normal'"+
+                ", nome='" + nome + "'" +
+                ", hora=" + hora +
+                ", valorPorHora=" + valorPorHora +
+                ", pagamento=" + pagamento();
+    }
 }
 

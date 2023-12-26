@@ -1,30 +1,38 @@
 package service;
 
+import menu.EmpregadoMenu;
 import model.Empregado;
 import model.Terceirizado;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class EmpregadoService {
 
-  List<Empregado> empregadoService = new ArrayList<>();
+  private List<Empregado> empregados = new ArrayList<>();
 
-//  public void adicionarFuncionario(String nomeEmpregado, Integer horasTrabalhadas,
-//                                   Double valorHorasTrabalhadas, char indicadorTerceizado){
-//
-//    if (indicadorTerceizado == 'N'){
-//      Empregado empregado = new Empregado(nomeEmpregado, horasTrabalhadas, valorHorasTrabalhadas);
-//      empregado.pagamento();
-//      System.out.println(empregado.pagamento());
-//  //    this.empregadoService.add();
-//    } else {
-//      Terceirizado terceiro = new Terceirizado(nomeEmpregado, horasTrabalhadas, valorHorasTrabalhadas);
-//      terceiro.pagamento();
-//      System.out.println(terceiro.pagamento());
-//    }
-//
-//  }
+  // CRUD = 1. Read 2. Create 3. Delete 4. Update
+  public void exibirTodos() {
+    EmpregadoMenu.exibirLista(empregados);
+  }
+
+  public void cadastrar() {
+    Empregado empregadoParaCadastrar = EmpregadoMenu.inserir();
+    empregados.add(empregadoParaCadastrar);
+  }
+
+  public void buscarPeloNome() {
+    String textoParaBuscar = EmpregadoMenu.pedirTextoParaBuscar();
+    List<Empregado> encontradosNaBusca = new ArrayList<>();
+
+    for(Empregado empregado : empregados) {
+      if (empregado.getNome().contains(textoParaBuscar))
+        encontradosNaBusca.add(empregado);
+    }
+
+    EmpregadoMenu.exibirLista(encontradosNaBusca);
+  }
 
 }
 
